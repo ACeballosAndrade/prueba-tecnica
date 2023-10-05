@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import {
-  BsFillArrowRightCircleFill,
-  BsFillArrowLeftCircleFill,
-} from "react-icons/bs";
+  AiOutlineRight,
+  AiOutlineLeft,
+} from "react-icons/ai";
 
 const Slider = ({ slides }) => {
-  let [current, setCuerrent] = useState(0);
+  let [current, setCurrent] = useState(0);
 
   let prevSlide = () => {
-    if (current === 0) setCuerrent(slides.lenght - 1);
-    else setCuerrent(current - 1);
+    if (current === 0) setCurrent(slides.length - 1);
+    else setCurrent(current - 1);
   };
 
   let nextSlide = () => {
-    if (current === slides.lenght - 1) setCuerrent(0);
-    else setCuerrent(current + 1);
+    if (current === slides.length - 1) setCurrent(0);
+    else setCurrent(current + 1);
   };
 
   return (
@@ -22,20 +22,20 @@ const Slider = ({ slides }) => {
       <div
         className={`flex transition ease-out duration-40`}
         style={{
-          transform: `translateX(-${current * 10})`,
+          transform: `translateX(-${current * 100}%)`,
         }}
       >
-        {slides.map((ima) => {
-          return <img src={ima} />;
+        {slides.map((ima, i) => {
+          return <img src={ima} alt={`Slide ${i}`} key={i} />;
         })}
       </div>
 
-      <div className="absolut top-0 h-full w-full justify-center justify-between items-center z-10 text-white flex px-10 text-3xl">
+      <div className="absolute top-0 h-full w-full justify-between items-center text-white flex px-15 text-[45px]">
         <button onClick={prevSlide}>
-          <BsFillArrowLeftCircleFill />
+          <AiOutlineLeft />
         </button>
         <button onClick={nextSlide}>
-          <BsFillArrowRightCircleFill />
+          < AiOutlineRight />
         </button>
       </div>
 
@@ -43,10 +43,12 @@ const Slider = ({ slides }) => {
         {slides.map((ima, i) => {
           return (
             <div
-              onClick={() => setCuerrent(i)}
-              key={"circle"+i}
-              className={`rounded-full w-5 h-5 cursor-pointer ${
-                i == current ? "bg-white" : "bg-gray-300"
+              onClick={() => {
+                setCurrent(i);
+              }}
+              key={i}
+              className={`rounded-full w-4 h-4 cursor-pointer ${
+                i === current ? "bg-white" : "bg-gray-300"
               }`}
             ></div>
           );

@@ -1,7 +1,7 @@
-import desktop from "../assets/I1.jpg";
-import mobile from "../assets/mobile/mI1.jpg";
-import title from "../assets/Grupo-11.png";
-import logo from "../assets/Grupo-22.png";
+import desktop from "../../assets/I1.jpg";
+import mobile from "../../assets/mobile/mI1.jpg";
+import title from "../../assets/Grupo-11.png";
+import logo from "../../assets/Grupo-22.png";
 import "./banner.css";
 
 const Banner = () => {
@@ -15,7 +15,7 @@ const Banner = () => {
       <img src={logo} alt="Logo" className="an-logo" />
       
       <div className="banner-inside">
-        <img src={title} alt="Título" />
+        <img src={title} alt="Título"/>
         <p className="an-text-p">
           Con Caribbean Premium Signature presentamos una colección en la que
           más allá de tendencias se habla de un estilo atemporal, creado con
